@@ -30,7 +30,6 @@ def _load():
     if _model is not None: return
     _model = DuelingDQN()
     path = os.path.join(os.path.dirname(__file__), "weights.pth")
-    # map_location='cpu' is vital for Codabench compatibility
     if os.path.exists(path):
         _model.load_state_dict(torch.load(path, map_location="cpu"))
     _model.eval()
